@@ -1,0 +1,62 @@
+<!-- Contact Section -->
+<section class="appoinment-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="contact-area">
+    <div class="section-title">
+        <h3>Request
+            <span>Appointment</span>
+        </h3>
+    </div>
+    <form name="contact_form" class="default-form contact-form" (ngSubmit)="onSubmit()" method="post">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="appointData.name" name="name" placeholder="Name" required="">
+                </div>
+                <div class="form-group">
+                    <input type="email" [(ngModel)]="appointData.email" name="email" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                    <label for="">-- Select Appointment Timing --</label>
+                    <select name="appoint_time" [(ngModel)]="appointData.appoint_time" (change)="onchange()">
+                        <option>-- Appointment Time --</option>
+                        <option *ngFor="let data of getTimeArray" [value]="data.id">
+                            
+                            {{ data.appointment_time }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <input type="text" name="contact_no" [(ngModel)]="appointData.contact_no" placeholder="Phone" required="">
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" [(ngModel)]="appointData.date" placeholder="Date" required="">
+                </div>
+                <div class="form-group">
+                    <label for="">-- Select Time Slot --</label>
+                    <select name="time_slot" [(ngModel)]="appointData.time_slot">
+                        <option>-- Time Slots --</option>
+                        <option *ngFor="let data of getSlotArray" [value]="data.id">
+                            {{ data.timeslote }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                
+                <div class="form-group text-center">
+                    <button type="submit" class="btn-style-one">submit now</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>                        
+            </div>
+        </div>                    
+    </div>
+</section>
+<!-- End Contact Section -->
